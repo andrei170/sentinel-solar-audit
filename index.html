@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Digital Presence Audit &middot; Sentinel Solar &middot; AG1 Consulting</title><style>
+:root{--bg:#0d1117;--panel:#161b22;--ink:#e6edf3;--mut:#9aa7b4;--line:#2a3340;--accent:#2f81f7;
+  --good:#3fb950;--bad:#f85149;--gradF:#f85149;--gradD:#e8702a;--gradC:#d29922;--gradB:#3fb950;--gradA:#2ea043;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--mut);font-weight:600}
+header{padding:46px 0 28px;border-bottom:1px solid var(--line);background:radial-gradient(1200px 400px at 70% -10%,rgba(47,129,247,.18),transparent)}
+h1{font-size:30px;font-weight:800;margin:10px 0 6px;letter-spacing:-.01em}
+.sub{color:var(--mut);font-size:15px}
+.hero{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:center;margin:34px 0 8px}
+@media(max-width:760px){.hero{grid-template-columns:1fr}}
+.gradecard{border:1px solid var(--line);border-radius:18px;padding:26px;text-align:center;position:relative;overflow:hidden}
+.gc-F{background:linear-gradient(160deg,#2a1410,#1c2330)}.gc-D{background:linear-gradient(160deg,#2a1c10,#1c2330)}
+.gc-C{background:linear-gradient(160deg,#2a2410,#1c2330)}.gc-B{background:linear-gradient(160deg,#102a1a,#1c2330)}
+.bigletter{font-size:96px;font-weight:900;line-height:1;position:relative}
+.bl-F{color:var(--gradF);text-shadow:0 0 40px rgba(248,81,73,.45)}
+.bl-D{color:var(--gradD);text-shadow:0 0 40px rgba(232,112,42,.45)}
+.bl-C{color:var(--gradC);text-shadow:0 0 40px rgba(210,153,34,.45)}
+.score100{font-size:18px;color:var(--mut);margin-top:6px;position:relative}
+.heroread h2{font-size:21px;font-weight:800;margin-bottom:10px}
+.heroread p{color:var(--mut);font-size:15.5px}
+.heroread .tag{display:inline-block;margin-top:14px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:var(--ink);background:var(--panel)}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+.h{font-size:13px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.row{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+.rname{font-weight:600;font-size:15px}
+.bar{height:7px;background:#0b0f15;border-radius:99px;margin-top:9px;overflow:hidden}
+.fill{height:100%;border-radius:99px}
+.badge{font-weight:800;font-size:15px;min-width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#0d1117}
+.gF{background:var(--gradF)}.gD{background:var(--gradD)}.gC{background:var(--gradC)}.gB{background:var(--gradB);color:#06210f}.gA{background:var(--gradA);color:#06210f}
+.sc{font-size:12px;color:var(--mut);margin-top:3px}
+.flag{background:linear-gradient(160deg,#2a1410,#161b22);border:1px solid #6f2a1f;border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.flag .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--bad);font-weight:700;margin-bottom:8px}
+.win{background:linear-gradient(160deg,#0f2417,#161b22);border:1px solid #1f6f3a;border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.win .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--good);font-weight:700;margin-bottom:8px}
+.warn{background:linear-gradient(160deg,#2a2410,#161b22);border:1px solid #6f5a1f;border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.warn .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--gradC);font-weight:700;margin-bottom:8px}
+.flag p,.win p,.warn p{color:var(--mut);font-size:14.5px;margin-bottom:9px}
+.flag p:last-child,.win p:last-child,.warn p:last-child{margin-bottom:0}
+.flag b,.win b,.warn b{color:var(--ink)}
+.flag ul,.win ul,.warn ul{margin:0 0 9px 20px;color:var(--mut);font-size:14.5px}
+.flag li,.win li,.warn li{margin-bottom:6px}
+.code{background:#0b0f15;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12.5px;line-height:1.85;color:var(--mut);overflow-x:auto}
+.code .ph{color:#ff9d94;font-weight:700}.code .ok{color:#84e0a8;font-weight:700}.code .c{color:#5b6672}
+.cmp{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cmp th{text-align:left;padding:11px 14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);border-bottom:1px solid var(--line);font-weight:700}
+.cmp td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--mut);vertical-align:top}
+.cmp tr:last-child td{border-bottom:none}.cmp td b{color:var(--ink)}.cmp tr.you td{background:#241a12}
+.cmp .yes{color:var(--good);font-weight:700}.cmp .no{color:var(--bad);font-weight:700}
+.opp{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.opp{grid-template-columns:1fr}}
+.ocard{background:linear-gradient(160deg,#0f2417,#161b22);border:1px solid #1f6f3a;border-radius:14px;padding:20px;text-align:center}
+.ocard .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--mut)}
+.ocard .big{font-size:30px;font-weight:900;color:var(--good);margin:8px 0 2px}
+.ocard .small{font-size:13px;color:var(--mut)}
+.oppnote{color:var(--mut);font-size:14px;margin-top:14px}.oppnote b{color:var(--ink)}
+.arrow{display:flex;align-items:center;justify-content:center;gap:18px;margin:6px 0 2px;flex-wrap:wrap}
+.pill{font-size:60px;font-weight:900;line-height:1}
+.pill.from-F{color:var(--gradF)}.pill.from-D{color:var(--gradD)}.pill.from-C{color:var(--gradC)}
+.pill.to{color:var(--gradA)}
+.pilllab{font-size:12px;color:var(--mut);text-align:center;text-transform:uppercase;letter-spacing:.1em}
+.ar{font-size:34px;color:var(--mut)}
+ul.road{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:760px){ul.road{grid-template-columns:1fr}}
+ul.road li{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:11px 14px;font-size:14.5px}
+.road2 li{border-left-color:var(--good)}
+.cta{text-align:center;padding:40px 0 56px}
+.cta h2{font-size:22px;font-weight:800;margin-bottom:8px}
+.cta p{color:var(--mut);font-size:15px}
+footer{color:var(--mut);font-size:12.5px;text-align:center;padding:22px 0 40px;line-height:1.7}
+.gscale{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 26px 20px;margin-top:16px}
+.gscale .gtitle{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--mut);font-weight:700;margin-bottom:26px;text-align:center}
+.gtrack{position:relative;height:14px;border-radius:8px;background:linear-gradient(90deg,#f85149 0%,#f85149 18%,#e3833c 34%,#d4a72c 52%,#7ec46a 74%,#3fb950 100%);margin:0 4px}
+.gmark{position:absolute;top:-46px;transform:translateX(-50%);text-align:center;white-space:nowrap}
+.gmark .gm-lab{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);font-weight:700}
+.gmark .gm-val{font-size:19px;font-weight:900;line-height:1.15}
+.gmark:after{content:"";position:absolute;left:50%;top:100%;width:2px;height:22px;transform:translateX(-50%);background:currentColor;opacity:.75}
+.gmark.now{color:var(--bad)}.gmark.now .gm-val{color:var(--bad)}
+.gmark.proj{color:var(--good)}.gmark.proj .gm-val{color:var(--good)}
+.gmark.proj{top:auto;bottom:-52px}
+.gmark.proj:after{top:auto;bottom:100%}
+.gdot{position:absolute;top:50%;width:16px;height:16px;border-radius:50%;transform:translate(-50%,-50%);border:3px solid #0d1117}
+.gdot.now{background:var(--bad)}.gdot.proj{background:var(--good)}
+.gticks{display:flex;justify-content:space-between;margin:66px 4px 0;font-size:11px;letter-spacing:.08em;color:var(--mut);font-weight:700}
+@media(max-width:620px){.gmark .gm-lab{font-size:9px}.gmark .gm-val{font-size:16px}}
+
+/* ---------- injected asset nav ---------- */
+.agnav{position:sticky;top:0;z-index:80;background:rgba(13,17,23,.92);backdrop-filter:saturate(1.5) blur(10px);border-bottom:1px solid var(--line)}
+.agnav .inner{max-width:1080px;margin:0 auto;padding:0 22px;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.agnav a{display:inline-block;padding:12px 14px;font-size:14px;font-weight:600;color:var(--mut);text-decoration:none;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.agnav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.agnav a.on{color:var(--ink);border-bottom-color:var(--accent)}
+.agnav a.ext{color:var(--accent)}
+.agnav a.ext:hover{color:#fff}
+@media(max-width:560px){.agnav .inner{padding:0 14px}.agnav a{padding:10px 9px;font-size:13px}}
+</style></head><body>
+<nav class="agnav"><div class="inner"><a href="assets.html">All Assets</a><a href="./" class="on">Audit</a><a href="https://andrei170.github.io/sentinel-solar-demo/">Concept Site</a></div></nav>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Digital Presence Audit &middot; Sentinel Solar &middot; Covington, Kentucky</div>
+    <div class="sub">Prepared for Jan Thurman &middot; 27 September 2026 &middot; AG1 Consulting</div>
+    <h1>Your Site Tells Google That Every Page On It Is A Copy Of Your Homepage.</h1>
+
+    <div class="hero">
+      <div class="gradecard gc-C">
+        <div class="bigletter bl-C">C</div>
+        <div class="score100">54 / 100</div>
+      </div>
+      <div class="heroread">
+        <h2>The build is genuinely good. One line of code in the template is stopping thirteen of its fourteen pages from ever ranking.</h2>
+        <p>You are on modern hosting, you load fast, you have analytics running and you publish structured data.
+        Most firms we audit have none of that. <b>You are not behind on technology.</b></p>
+        <p><b>But every page on the site declares the homepage as its canonical URL.</b> That is the tag that tells
+        Google &ldquo;this page is a duplicate, index the other one instead.&rdquo; Your commercial page, your EV
+        charging page, your portfolio and all five case studies are telling Google to ignore them.</p>
+        <div class="tag">Strong technical base &bull; Failing discoverability &bull; Missing the channel you asked for</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="h">The Scorecard</div>
+    <div class="sheet">
+      <div class="row"><div><div class="rname">Canonical tags</div><div class="sc">All 8 pages tested point to the homepage &mdash; every page declares itself a duplicate</div></div><div class="badge gF">F</div></div>
+      <div class="row"><div><div class="rname">Sitemap accuracy</div><div class="sc">6 URLs listed, 3 return 404; every real page is missing from it</div></div><div class="badge gF">F</div></div>
+      <div class="row"><div><div class="rname">Roofer / contractor channel</div><div class="sc">Zero mentions anywhere; no partner or trade page exists</div></div><div class="badge gF">F</div></div>
+      <div class="row"><div><div class="rname">Schema address</div><div class="sc">City and state fields blank; &ldquo;Covington&rdquo; sitting in the postcode field</div></div><div class="badge gD">D</div></div>
+      <div class="row"><div><div class="rname">Page depth</div><div class="sc">Homepage 432 words, commercial page 211, case studies 73&ndash;88 each</div></div><div class="badge gD">D</div></div>
+      <div class="row"><div><div class="rname">Commercial positioning</div><div class="sc">Equal weight to residential (4 mentions each) despite commercial being the goal</div></div><div class="badge gD">D</div></div>
+      <div class="row"><div><div class="rname">Proof of work</div><div class="sc">5 real case studies published, but none framed as commercial evidence</div></div><div class="badge gC">C</div></div>
+      <div class="row"><div><div class="rname">Brand consistency</div><div class="sc">Contact email is on janthesolarman.com, not the site domain</div></div><div class="badge gC">C</div></div>
+      <div class="row"><div><div class="rname">Structured data present</div><div class="sc">LocalBusiness JSON-LD with service list and social profiles</div></div><div class="badge gB">B</div></div>
+      <div class="row"><div><div class="rname">Analytics</div><div class="sc">GA4 installed and firing &mdash; most competitors we audit have none</div></div><div class="badge gB">B</div></div>
+      <div class="row"><div><div class="rname">Contact routes</div><div class="sc">Click-to-call, email link and an enquiry form all present</div></div><div class="badge gB">B</div></div>
+      <div class="row"><div><div class="rname">Speed &amp; hosting</div><div class="sc">Next.js on Vercel, HTTPS clean, mobile viewport correct</div></div><div class="badge gA">A</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">Finding 1 &mdash; Thirteen Of Your Fourteen Pages Tell Google To Ignore Them</div>
+    <div class="code">
+  PAGE                                          CANONICAL IT DECLARES
+  /                                             <span class="ok">https://www.sentinelsolarpower.com</span>  correct
+  /about                                        https://www.sentinelsolarpower.com  <span class="ph">wrong</span>
+  /contact                                      https://www.sentinelsolarpower.com  <span class="ph">wrong</span>
+  /sentinel-solar/learn                         https://www.sentinelsolarpower.com  <span class="ph">wrong</span>
+  /sentinel-solar/portfolio                     https://www.sentinelsolarpower.com  <span class="ph">wrong</span>
+  /sentinel-solar/portfolio/wenzel-distillery   https://www.sentinelsolarpower.com  <span class="ph">wrong</span>
+  /sentinel-solar/services/commercial           https://www.sentinelsolarpower.com  <span class="ph">wrong</span>
+  /sentinel-solar/services/ev-charging          https://www.sentinelsolarpower.com  <span class="ph">wrong</span>
+    </div>
+    <div class="flag">
+      <div class="lab">What this actually costs you</div>
+      <p><b>A canonical tag is a page saying &ldquo;I am not the original, rank that one instead.&rdquo;</b> It exists to
+      stop duplicate pages competing with each other. Here it is set to the homepage on every single page, which means
+      your entire site has volunteered to be ignored except the front door.</p>
+      <p><b>So when somebody in Cincinnati searches for commercial solar, your commercial page cannot answer.</b>
+      It has told Google it is a copy of a page about premium residential solar. Same for EV charging, battery
+      storage, and every case study you have published.</p>
+      <p><b>This is a template fault, not something you did.</b> It is one line in whoever built the site, and fixing
+      it is a single change that applies to all fourteen pages at once. It is the highest-value hour of work available
+      on this site by a wide margin.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">Finding 2 &mdash; Your Sitemap Points Google At Three Dead Pages And Hides The Real Ones</div>
+    <div class="code">
+  WHAT THE SITEMAP LISTS                        WHAT HAPPENS
+  /                                             <span class="ok">200 OK</span>
+  /about                                        <span class="ok">200 OK</span>
+  /contact                                      <span class="ok">200 OK</span>
+  /services                                     <span class="ph">404 &mdash; does not exist</span>
+  /education                                    <span class="ph">404 &mdash; does not exist</span>
+  /projects                                     <span class="ph">404 &mdash; does not exist</span>
+
+  WHAT THE SITEMAP DOES NOT MENTION             ALL LIVE, ALL 200 OK
+  /sentinel-solar/services/commercial           <span class="ok">your commercial page</span>
+  /sentinel-solar/services/ev-charging          <span class="ok">EV chargers</span>
+  /sentinel-solar/services/residential          <span class="ok">residential</span>
+  /sentinel-solar/services/battery              <span class="ok">battery storage</span>
+  /sentinel-solar/portfolio                     <span class="ok">+ 5 case studies underneath it</span>
+  /sentinel-solar/learn                         <span class="ok">education content</span>
+    </div>
+    <div class="warn">
+      <div class="lab">Both halves are wrong, and the second half is the expensive one</div>
+      <p><b>Half your sitemap is broken links.</b> Three of the six URLs return 404. That is a trust signal going the
+      wrong way every time Google reads it.</p>
+      <p><b>But the real cost is what is missing.</b> Every page that would win you commercial work &mdash; the
+      commercial service page, the four service pages, the portfolio and its five case studies &mdash; is absent from
+      the map you hand to Google. Combined with Finding 1, those pages are both unlisted and self-suppressed.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">Finding 3 &mdash; You Told Us You Want Roofer Work. The Site Has Not One Word About It.</div>
+    <div class="code">
+  HOMEPAGE WORD COUNTS               found
+  commercial                         4
+  residential                        4
+  battery                            4
+  kentucky                           3
+  ohio                               3
+  <span class="ph">roofer</span>                             <span class="ph">0</span>
+  <span class="ph">roofing</span>                            <span class="ph">0</span>
+  <span class="ph">contractor</span>                         <span class="ph">0</span>
+  <span class="ph">partner / trade / referral</span>         <span class="ph">0</span>
+
+  PAGES AIMED AT A ROOFING COMPANY   <span class="ph">none exist</span>
+    </div>
+    <div class="win">
+      <div class="lab">This is the gap worth closing first, because it is the one you already decided on</div>
+      <p><b>You said you want to do work for roofers and build relationships with roofing companies.</b> A roofing
+      contractor who needs a solar partner has nowhere to land on your site and nothing to read that speaks to them.
+      Everything on it is written for a homeowner.</p>
+      <p><b>A roofer is not a lead, they are a channel.</b> One roofing company that sends you work sends it
+      repeatedly, which is a different economic shape from winning single homeowners one at a time. That matters more
+      than usual when you are two installers and the retail market is quiet.</p>
+      <p><b>What it needs is a page written to them, not to a homeowner:</b> what you take off their plate, how you
+      handle the electrical side, how quickly you can be on site, and what the arrangement looks like. It costs
+      nothing but the writing, and it is the only page on the site with a clear commercial job to do.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">Finding 4 &mdash; The Address You Publish To Google Has No City And No State In It</div>
+    <div class="code">
+  WHAT YOUR STRUCTURED DATA SAYS       WHAT IT SHOULD SAY
+  streetAddress  "6 East 5th Street"   <span class="ok">correct</span>
+  addressLocality ""                   <span class="ph">empty &mdash; should be "Covington"</span>
+  addressRegion   ""                   <span class="ph">empty &mdash; should be "KY"</span>
+  postalCode      "Covington"          <span class="ph">the city, sitting in the postcode field</span>
+  addressCountry  "US"                 <span class="ok">correct</span>
+  areaServed      Kentucky, Ohio       <span class="ok">correct</span>
+    </div>
+    <div class="warn">
+      <div class="lab">Small field, local consequence</div>
+      <p><b>You are publishing a business with a street address, no town and no state.</b> Structured data is how
+      Google reads your location without guessing from your words, and this tells it almost nothing usable.</p>
+      <p><b>Everything else in that block is right</b> &mdash; phone, service list, Facebook, Instagram and TikTok all
+      correctly declared. It is three fields, and it is a five-minute fix.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">Finding 5 &mdash; You Have Commercial Proof And You Are Not Using It As Proof</div>
+    <div class="code">
+  PUBLISHED CASE STUDIES             WORDS   READS AS
+  Wenzel Distillery                  74      <span class="ok">commercial</span>  &mdash; filed under "portfolio"
+  ProMaster                          73      <span class="ok">commercial</span>  &mdash; filed under "portfolio"
+  Heatherbrook Farms                 74      <span class="ok">agricultural / commercial</span>
+  311 Beechwood                      86      residential
+  Indian Hill                        88      residential
+
+  Commercial service page            211     thin, and canonicalised away
+  Portfolio index                    118     thin
+    </div>
+    <div class="win">
+      <div class="lab">The evidence a commercial buyer wants is already on your site, just not arranged for them</div>
+      <p><b>A distillery, a facilities company and a farm are exactly the references a small commercial buyer asks
+      for.</b> They are sitting in a general portfolio at roughly 75 words each, undated, with no system size, no
+      load, no timescale and no outcome.</p>
+      <p><b>Three properly written commercial case studies would do more for you than any amount of new content.</b>
+      What the site was, what you installed, how long it took, what it saved. That is what gets forwarded internally
+      when somebody is deciding whether to call you.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">What Is Already Working</div>
+    <div class="code">
+  <span class="ok">Next.js on Vercel</span>            fast, modern, HTTPS clean, mobile viewport correct
+  <span class="ok">GA4 installed and firing</span>     you can actually measure a change
+  <span class="ok">LocalBusiness structured data</span> with service list and all three social profiles
+  <span class="ok">Click-to-call + form + email</span>  every contact route present on the homepage
+  <span class="ok">14 real pages live</span>            four service pages, portfolio, five case studies, learn
+  <span class="ok">Titles and descriptions written</span> genuinely good ones, not auto-generated
+    </div>
+    <div class="win">
+      <div class="lab">Why this matters to how we would price it</div>
+      <p><b>You are not starting from nothing, and you should not be sold as if you were.</b> The build is sound and
+      the content exists. What is broken is configuration and targeting, which is cheap to fix and fast to show.</p>
+      <p><b>Findings 1, 2 and 4 are a single afternoon.</b> Finding 3 is writing. Finding 5 is writing. There is no
+      rebuild in this list.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="h">Priority Roadmap</div>
+    <ul class="road">
+      <li><b>Fix the canonical tags.</b> One template change, thirteen pages stop suppressing themselves. Nothing else
+      on this list works until this does.</li>
+      <li><b>Rebuild the sitemap</b> so it lists the pages that exist and drops the three that do not.</li>
+      <li><b>Fill in the three address fields</b> in the structured data.</li>
+      <li><b>Write the roofing-partner page.</b> The channel you already decided you want, which currently has no
+      front door.</li>
+      <li><b>Rewrite the three commercial case studies properly</b> &mdash; system size, timescale, outcome.</li>
+      <li><b>Then, and only then,</b> consider anything paid. There is no sense buying traffic for pages that are
+      telling Google to ignore them.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="wrap">
+    <h2>The build is fine. The configuration is throwing away thirteen of them.</h2>
+    <p>Fix that first, and everything you have already paid to have built starts working.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    Prepared by Andrei Givero &middot; AG1 Consulting &middot; 27 September 2026, for Jan Thurman.
+    <b>Every finding in this document was measured directly from sentinelsolarpower.com on 27 September 2026 and can
+    be re-checked in front of you. Canonical tags were read from eight pages individually; the sitemap URLs were each
+    requested and their status codes recorded; word counts exclude scripts, styles and markup; the address fields are
+    quoted verbatim from the LocalBusiness JSON-LD block on the homepage.</b>
+    <b>Word counts and page inventories reflect the site as served on that date. A site that changes after this date
+    will not match, and we would re-measure rather than rely on this document.</b>
+    <b>&#9888; No enquiry, ranking, lead or revenue outcome is promised, forecast or guaranteed anywhere in this
+    document. Search visibility is set by Google, not by AG1. Nothing here is a projection of income.</b>
+    <b>Business details described to us by Lorenzo on 25 September 2026 &mdash; volume of roughly a couple of jobs a
+    month, a team of two installers, work arriving by referral, an intention to focus on small commercial, and an
+    interest in working with roofing companies &mdash; are as reported to AG1 and have not been independently
+    verified.</b>
+    Product and company names are used for identification only and belong to their respective owners.
+  </div>
+</footer>
+</body></html>
